@@ -58,7 +58,7 @@ mod imp {
     static ARGS: OnceCell<Vec<String>> = OnceCell::new();
 
     #[used]
-    #[link_section = ".preinit_array"]
+    #[link_section = ".init_array"]
     #[no_mangle]
     static SET_ARGS: [extern "C" fn(c_int, *const *const c_char, *const *const c_char); 1] = {
         extern "C" fn set_args(
